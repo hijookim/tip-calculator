@@ -141,15 +141,24 @@ class ViewController: UIViewController {
     }
     
     func setTipLabels() {
-        let billAmount = Double(billField.text!)!
-        let tipAmount = billAmount * defaultTipPercent
-        let totalAmount = billAmount + tipAmount
+        if billField.text!.characters.count > 0 {
+            let billAmount = Double(billField.text!)!
+            let tipAmount = billAmount * defaultTipPercent
+            let totalAmount = billAmount + tipAmount
         
-        tipLabel.text = formatPrice(tipAmount)
-        totalLabel.text = formatPrice(totalAmount)
-        split2PeopleAmountLabel.text = formatPrice(totalAmount / 2)
-        split3PeopleAmountLabel.text = formatPrice(totalAmount / 3)
-        split4PeopleAmountLabel.text = formatPrice(totalAmount / 4)
+            tipLabel.text = formatPrice(tipAmount)
+            totalLabel.text = formatPrice(totalAmount)
+            split2PeopleAmountLabel.text = formatPrice(totalAmount / 2)
+            split3PeopleAmountLabel.text = formatPrice(totalAmount / 3)
+            split4PeopleAmountLabel.text = formatPrice(totalAmount / 4)
+        } else {
+            // empty input - reset all fields
+            tipLabel.text = formatPrice(0)
+            totalLabel.text = formatPrice(0)
+            split2PeopleAmountLabel.text = formatPrice(0)
+            split3PeopleAmountLabel.text = formatPrice(0)
+            split4PeopleAmountLabel.text = formatPrice(0)
+        }
     }
 }
 

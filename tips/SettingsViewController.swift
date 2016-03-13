@@ -11,6 +11,7 @@ import UIKit
 class SettingsViewController: UIViewController {
     
     @IBOutlet weak var defaultTipPercentageLabel: UILabel!
+    @IBOutlet weak var defaultPercentSlider: UISlider!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +19,9 @@ class SettingsViewController: UIViewController {
         let defaults = NSUserDefaults.standardUserDefaults()
         let defaultTipPercentageValue = defaults.integerForKey("default_tip_percentage")
         defaultTipPercentageLabel.text = String(defaultTipPercentageValue)
+        defaultPercentSlider.minimumValue = 0
+        defaultPercentSlider.maximumValue = 100
+        defaultPercentSlider.setValue(Float(defaultTipPercentageValue), animated: true)
     }
 
     override func didReceiveMemoryWarning() {
