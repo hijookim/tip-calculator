@@ -232,6 +232,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Settings" id="FlH-ef-O8E"/>
                     <connections>
+                        <outlet property="defaultPercentSlider" destination="Mec-Eh-PLB" id="hhY-f9-ZYC"/>
                         <outlet property="defaultTipPercentageLabel" destination="Ox5-0y-dkU" id="HyX-yA-S6G"/>
                     </connections>
                 </viewController>
